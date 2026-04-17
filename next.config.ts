@@ -1,14 +1,8 @@
+import type { NextConfig } from 'next';
 
-import type {NextConfig} from 'next';
+const API_URL = process.env.API_URL ?? 'https://pricetrack-api.onrender.com';
 
 const nextConfig: NextConfig = {
-  experimental: {
-    // This allows cross-origin requests from the web preview development environment.
-    allowedDevOrigins: [
-      'https://*.cloudworkstations.dev',
-      'https://*.firebase.studio',
-    ],
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -17,43 +11,27 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'epocacosmeticos.vteximg.com.br',
-      },
-      {
-        protocol: 'https',
-        hostname: 'a-static.mlcdn.com.br',
-      },
-      {
-        protocol: 'https',
-        hostname: 'm.media-amazon.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-      }
+      { protocol: 'https', hostname: 'placehold.co' },
+      { protocol: 'https', hostname: 'epocacosmeticos.vteximg.com.br' },
+      { protocol: 'https', hostname: 'a-static.mlcdn.com.br' },
+      { protocol: 'https', hostname: 'm.media-amazon.com' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'belezanaweb.vteximg.com.br' },
     ],
   },
   async rewrites() {
     return [
       {
         source: '/api/price-data',
-        destination: 'https://pricetrack-api.onrender.com/api/products/',
+        destination: `${API_URL}/api/products/`,
       },
       {
         source: '/api/url-data',
-        destination: 'https://pricetrack-api.onrender.com/api/urls/',
+        destination: `${API_URL}/api/urls/`,
       },
-       {
+      {
         source: '/api/urls/update_is_active',
-        destination: 'https://pricetrack-api.onrender.com/api/urls/update_is_active/',
+        destination: `${API_URL}/api/urls/update_is_active/`,
       },
     ];
   },
