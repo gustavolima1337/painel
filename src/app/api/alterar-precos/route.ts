@@ -10,7 +10,7 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: 'Payload inválido. Esperado um array de produtos.' }, { status: 400 });
     }
 
-    const apiUrl = process.env.API_URL ?? 'https://pricetrack-api.onrender.com';
+    const apiUrl = process.env.API_URL ?? 'https://api-yeoh.onrender.com';
     const externalApiResponse = await fetch(`${apiUrl}/api/products/update_precos`, {
       method: 'PATCH',
       headers: {

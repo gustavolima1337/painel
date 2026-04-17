@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
 
-const API_URL = process.env.API_URL ?? 'https://pricetrack-api.onrender.com';
+const API_URL = process.env.API_URL ?? 'https://api-yeoh.onrender.com';
 
 const nextConfig: NextConfig = {
   typescript: {
