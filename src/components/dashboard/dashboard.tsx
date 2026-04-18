@@ -80,7 +80,7 @@ function DashboardContent() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/price-data');
+      const res = await fetch('/api/price-data?limit=2000');
       if (!res.ok) throw new Error(`Status ${res.status} ${res.statusText}`);
 
       const data = await res.json();
